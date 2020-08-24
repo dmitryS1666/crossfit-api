@@ -6,17 +6,25 @@
 
 # Ignore bundler config.
 /.bundle
+.idea
+config/database.yml
+backup/*
 
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
+/storage/*
+
+/db/*.sqlite3
 !/log/.keep
 !/tmp/.keep
 
-# Ignore uploaded files in development.
-/storage/*
-!/storage/.keep
+# Ignore Byebug command history file.
 .byebug_history
+.vscode/
 
+# Ignore Coveralls local results data
+coverage/
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+/config/database.yml
