@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_04_194600) do
+ActiveRecord::Schema.define(version: 2020_08_25_174246) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -85,13 +85,11 @@ ActiveRecord::Schema.define(version: 2020_03_04_194600) do
     t.boolean "complete"
     t.string "token"
     t.string "name"
-    t.string "company"
     t.string "phone"
     t.string "password"
     t.string "unp"
     t.string "first_name"
     t.string "last_name"
-    t.string "organization"
   end
 
   create_table "user_contacts", force: :cascade do |t|
@@ -134,6 +132,34 @@ ActiveRecord::Schema.define(version: 2020_03_04_194600) do
     t.datetime "locked_at"
     t.boolean "superadmin_role"
     t.boolean "user_role"
+    t.string "SESSION_ID"
+    t.string "birthDate"
+    t.string "sex"
+    t.string "purchaseTime"
+    t.integer "weight", default: 0
+    t.integer "backSquat", default: 0
+    t.integer "frontSquat", default: 0
+    t.integer "clean_and_jerk", default: 0
+    t.integer "snatch", default: 0
+    t.integer "benchPress", default: 0
+    t.integer "deadlift", default: 0
+    t.integer "overheadPress", default: 0
+    t.integer "subscriptionId", default: 0
+    t.integer "ticketId", default: 0
+    t.integer "trainerId", default: 0
+    t.integer "duration", default: 0
+    t.integer "visits", default: 0
+    t.integer "price", default: 0
+    t.integer "attendanceTime", default: 0
+    t.integer "trainingId", default: 0
+    t.integer "tickets", default: 0
+    t.string "club"
+    t.string "description"
+    t.text "attendances", default: [], array: true
+    t.text "subscriptions", default: [], array: true
+    t.boolean "trainer", default: false
+    t.boolean "client", default: false
+    t.integer "height", default: 0
     t.index ["account_id"], name: "index_users_on_account_id"
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end

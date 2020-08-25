@@ -35,25 +35,6 @@ RailsAdmin.config do |config|
     config.main_app_name { ['My App', 'Admin'] }
   end
 
-  config.model 'Product' do
-    list do
-      field :id
-      field :name
-      field :desc
-      field :is_stock
-      field :is_sale
-      field :price
-      field :rubric
-      field :category
-      field :sub_category
-      field :hidden
-      field :images
-      field :created_at
-      field :updated_at
-      field :sku
-    end
-  end
-
   config.model 'User' do
     list do
       field :id
@@ -85,32 +66,4 @@ RailsAdmin.config do |config|
     end
   end
 
-  config.model 'Category' do
-    list do
-      field :id
-      field :name
-      field :rubric
-      field :hidden
-    end
-
-    configure :product_attributes do
-      hide
-      filterable false
-      searchable false
-    end
-  end
-
-  config.model 'ProductAttribute' do
-    list do
-      field :id
-      field :product
-      field :key
-      field :value
-    end
-    configure :filter do
-      hide
-      filterable false
-      searchable false
-    end
-  end
 end

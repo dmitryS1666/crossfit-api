@@ -27,9 +27,10 @@ Doorkeeper.configure do
   #   request.env["warden"].authenticate!(scope: :user, store: false)
   # end
   resource_owner_from_credentials do |routes|
-    user = User.find_for_database_authentication(email: params[:username])
+    user = User.find_for_database_authentication(email: params[:email])
     if user && user.failed_attempts < 5 && user.active_for_authentication? &&
        user.valid_for_authentication? do
+         # Rails.logger.warn Doorkeeper::OAuth::TokenResponse.new(Doorkeeper::AccessToken.first).body
          user.valid_password?(params[:password])
        end
       user

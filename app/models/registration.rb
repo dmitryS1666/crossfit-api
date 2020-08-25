@@ -9,13 +9,11 @@
 #  complete     :boolean
 #  token        :string
 #  name         :string
-#  company      :string
 #  phone        :string
 #  password     :string
 #  unp          :string
 #  first_name   :string
 #  last_name    :string
-#  organization :string
 #
 
 class Registration < ApplicationRecord
