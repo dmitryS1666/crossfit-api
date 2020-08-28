@@ -55,13 +55,26 @@ RailsAdmin.config do |config|
       field :first_name
       field :last_name
       field :phone
-      field :account_id
-      field :organization
       field :unp
+      field :birthDate
+      field :sex
+      field :height
+      field :weight
+      field :duration
+      field :visits
+      field :price
+      field :ticketId
       field :failed_attempts
       field :unlock_token
       field :locked_at
       field :superadmin_role
+      field :user_role
+    end
+  end
+
+  config.model 'Exercise' do
+    list do
+      field :id
       field :user_role
     end
   end

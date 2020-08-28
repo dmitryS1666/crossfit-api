@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_25_174246) do
+ActiveRecord::Schema.define(version: 2020_08_27_205419) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,15 @@ ActiveRecord::Schema.define(version: 2020_08_25_174246) do
     t.string "last_name"
     t.string "remember_token"
     t.datetime "remember_token_expires_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "exercises", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.string "videoUrl"
+    t.string "equipment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -132,7 +141,6 @@ ActiveRecord::Schema.define(version: 2020_08_25_174246) do
     t.datetime "locked_at"
     t.boolean "superadmin_role"
     t.boolean "user_role"
-    t.string "SESSION_ID"
     t.string "birthDate"
     t.string "sex"
     t.string "purchaseTime"

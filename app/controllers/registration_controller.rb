@@ -54,9 +54,7 @@ class RegistrationController < ApplicationController
       #   bot.api.send_message(chat_id: '454126028', text: registration.to_json)
       # end
 
-      user =
-          User.new(email: params[:email], password: params[:password])
-      user.SESSION_ID = token
+      user = User.new(email: params[:email], password: params[:password])
       user.first_name = params[:first_name]
       user.last_name = params[:last_name]
       user.phone = params[:phone]

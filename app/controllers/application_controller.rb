@@ -32,12 +32,6 @@ class ApplicationController < JSONAPI::ResourceController
   protect_from_forgery with: :null_session
   skip_before_action :verify_authenticity_token
 
-  helper_method :current_order
-
-  def current_order
-    session[:order_id] ? Order.find(session[:order_id]) : Order.new
-  end
-
   protected
 
   # Devise methods
