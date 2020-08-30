@@ -8,7 +8,8 @@ class UserPolicy < ApplicationPolicy
   end
 
   def update?
-    true if user.present? && (user.email == article.email || user.superadmin_role?)
+    # true if user.present? && (user.email == article.email || user.superadmin_role?)
+    true if user.present?
   end
 
   def all_users?

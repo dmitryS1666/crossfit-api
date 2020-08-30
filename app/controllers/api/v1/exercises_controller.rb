@@ -30,7 +30,11 @@ class Api::V1::ExercisesController < ApplicationController
       if @exercise.update(exercise_params)
          @exercise.save
          render plain: {
-             id: @exercise.id, name: @exercise.name, price: @exercise.price
+             id: @exercise.id,
+             name: @exercise.name,
+             description: @exercise.description,
+             videoUrl: @exercise.videoUrl,
+             equipment: @exercise.equipment
          }.to_json,
                 status: 200,
                 content_type: 'application/json'

@@ -3,6 +3,13 @@ class ExercisePolicy < ApplicationPolicy
     user.present?
   end
 
+  def show?
+    Rails.logger.warn 'USER'
+    Rails.logger.warn user.serializable_hash
+
+    user.client? || user.trainer?
+  end
+
   def create?
     user.present?
   end

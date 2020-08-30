@@ -55,6 +55,8 @@ RailsAdmin.config do |config|
       field :first_name
       field :last_name
       field :phone
+      field :client
+      field :trainer
       field :unp
       field :birthDate
       field :sex
