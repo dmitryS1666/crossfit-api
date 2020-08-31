@@ -14,6 +14,8 @@ class RegistrationController < ApplicationController
       return
     end
 
+    return render json: { message: 'Incorrect password length. Range from 4 to 8 values' } if params[:password].length < 4 || params[:password].length > 8
+
     if params[:password] != params[:password_confirmation]
       render json: { message: 'Password and confirm password do not match' }
       return
