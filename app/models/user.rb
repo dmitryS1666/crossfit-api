@@ -41,7 +41,7 @@ class User < ApplicationRecord
          :lockable,
          :recoverable,
          :rememberable,
-         :validatable
+         :validatable, password_length: 4..8
   has_many :access_tokens,
            class_name: 'Doorkeeper::AccessToken',
            foreign_key: :resource_owner_id,
