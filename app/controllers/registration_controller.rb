@@ -70,7 +70,7 @@ class RegistrationController < ApplicationController
       user.phone = params[:phone]
 
       user.save
-      render json: { message: 'Complete registration on Service' }
+      render json: { message: 'Complete registration on Service', user_id: user.id }
       return
     else
       render json: { message: 'User exist' }
