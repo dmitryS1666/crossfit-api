@@ -148,3 +148,5 @@ Doorkeeper.configure do
   # end
   skip_authorization { true }
 end
+
+Doorkeeper::OAuth::TokenResponse.send :prepend, CustomTokenResponse
