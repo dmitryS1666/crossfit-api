@@ -69,6 +69,12 @@ class RegistrationController < ApplicationController
       user.last_name = params[:last_name]
       user.phone = params[:phone]
 
+      if params[:client].present?
+        user.client = params[:client]
+      elsif params[:trainer].present?
+        user.trainer = params[:trainer]
+      end
+
       user.save
       render json: { message: 'Complete registration on Service', user_id: user.id }
       return
