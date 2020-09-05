@@ -4,9 +4,6 @@ class ExercisePolicy < ApplicationPolicy
   end
 
   def show?
-    Rails.logger.warn 'USER'
-    Rails.logger.warn user.serializable_hash
-
     user.client? || user.trainer?
   end
 

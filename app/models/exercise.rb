@@ -7,6 +7,7 @@
 #  description :string           default(""), not null
 #  videoUrl    :string
 #  equipment   :string
+#  user_id     :string
 #
 
 class Exercise < ApplicationRecord

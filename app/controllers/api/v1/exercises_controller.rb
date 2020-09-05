@@ -1,7 +1,17 @@
 class Api::V1::ExercisesController < ApplicationController
    skip_before_action :doorkeeper_authorize!
-   before_action :authorize_exercise_policy, only: %i[create update destroy_all destroy all_exercises]
+   before_action :authorize_exercise_policy, only: %i[index create update destroy_all destroy all_exercises]
    before_action :load_exercise, only: %i[show edit update]
+
+   def index
+      if params[:user_id] && params[:name]
+         exercise = Exercise.find_by_name_and_user_id(params[:name], params[:user_id])
+         render json: { message: exercise }
+      elsif params[:user_id]
+         exercises = Exercise.all.where(user_id: params[:user_id])
+         render json: { message: exercises }
+      end
+   end
 
    def destroy_all
       Exercise.delete_all
@@ -9,8 +19,8 @@ class Api::V1::ExercisesController < ApplicationController
    end
 
    def create
-      if Exercise.find_by_name(params[:name]).present?
-         render json: { message: 'Exercise exist' }
+      if Exercise.find_by_name_and_user_id(params[:name], params[:user_id]).present?
+         render json: { message: "Exercise '#{params[:name]}' already exist" }
       else
          @exercise = Exercise.new(exercise_params)
 
@@ -58,7 +68,8 @@ class Api::V1::ExercisesController < ApplicationController
           :name,
           :description,
           :videoUrl,
-          :equipment
+          :equipment,
+          :user_id
       )
    end
 
