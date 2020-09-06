@@ -3,6 +3,10 @@ class Api::V1::UsersController < ApplicationController
   before_action :authorize_user_policy, only: %i[create update destroy all_users]
   before_action :load_user, only: %i[show edit update]
 
+  def show
+    render json: @user
+  end
+
   def all_users
     render json: serialize_users(User.all)
   end
