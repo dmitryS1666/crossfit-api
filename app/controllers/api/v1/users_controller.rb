@@ -10,15 +10,7 @@ class Api::V1::UsersController < ApplicationController
   def update
     if @user.update(user_params)
       @user.save
-      render plain: {
-          id: @user.id,
-          email: @user.email,
-          first_name: @user.first_name,
-          last_name: @user.last_name,
-          phone: @user.phone
-      }.to_json,
-             status: 200,
-             content_type: 'application/json'
+      render json: @user
     else
       render json: @user.errors, status: :unprocessable_entity
     end
@@ -34,7 +26,41 @@ class Api::V1::UsersController < ApplicationController
     params.require(:user).permit(
         :first_name,
         :last_name,
-        :phone
+        :phone,
+        :email,
+        :created_at,
+        :updated_at,
+        :first_name,
+        :last_name,
+        :phone,
+        :birthDate,
+        :sex,
+        :purchaseTime,
+        :weight,
+        :backSquat,
+        :frontSquat,
+        :clean_and_jerk,
+        :snatch,
+        :benchPress,
+        :deadlift,
+        :overheadPress,
+        :subscriptionId,
+        :ticketId,
+        :trainerId,
+        :duration,
+        :visits,
+        :price,
+        :attendanceTime,
+        :trainingId,
+        :tickets,
+        :club,
+        :description,
+        :attendances,
+        :subscriptions,
+        :trainer,
+        :client,
+        :height,
+        :avatar
     )
   end
 
