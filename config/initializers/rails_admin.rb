@@ -71,13 +71,52 @@ RailsAdmin.config do |config|
       field :locked_at
       field :superadmin_role
       field :user_role
+      field :longitude
+      field :latitude
     end
   end
 
   config.model 'Exercise' do
     list do
       field :id
-      field :user_role
+      field :name
+      field :description
+      field :videoUrl
+      field :equipment
+      field :user_id
+    end
+  end
+
+  config.model 'Training' do
+    list do
+      field :id
+      field :name
+      field :description
+      field :trainer_id
+      field :sections
+    end
+  end
+
+  config.model 'Section' do
+    list do
+      field :id
+      field :duration
+      field :start_minute
+      field :section_type
+      field :training_id
+    end
+  end
+
+  config.model 'Action' do
+    list do
+      field :id
+      field :minute
+      field :exercise_id
+      field :default_value_man
+      field :profile_index
+      field :ratio
+      field :reps
+      field :distance
     end
   end
 

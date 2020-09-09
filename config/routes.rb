@@ -42,6 +42,7 @@ Rails.application.routes.draw do
       jsonapi_resources :user_contacts
       jsonapi_resources :accounts
       jsonapi_resources :exercises
+      jsonapi_resources :trainings
 
       get 'destroy_all', to: 'images#destroy_all'
     end

@@ -64,7 +64,9 @@ class Api::V1::UsersController < ApplicationController
         :trainer,
         :client,
         :height,
-        :avatar
+        :avatar,
+        :longitude,
+        :latitude
     )
   end
 
