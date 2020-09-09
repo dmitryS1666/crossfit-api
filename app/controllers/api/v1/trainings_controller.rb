@@ -1,6 +1,6 @@
 class Api::V1::TrainingsController < ApplicationController
    skip_before_action :doorkeeper_authorize!
-   # before_action :authorize_training_policy, only: %i[index create update destroy_all destroy all_trainings]
+   before_action :authorize_training_policy, only: %i[index create update destroy_all destroy all_trainings]
    before_action :load_training, only: %i[show edit update]
 
    def index

@@ -1,18 +1,18 @@
 class TrainingPolicy < ApplicationPolicy
   def index?
-    # user.present?
+    user.present?
   end
 
   def show?
-    # user.trainer?
+    user.present?
   end
 
   def create?
-    # user.present?
+    user.trainer?
   end
 
   def update?
-    # true if user.present?
+    user.trainer?
   end
 
   def destroy?
