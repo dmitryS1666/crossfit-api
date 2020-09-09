@@ -13,6 +13,6 @@
 #  distance             :integer
 
 class Action < ApplicationRecord
-  attr_accessor :minute, :exercise_id, :default_value_man, :default_value_woman, :profile_index, :ration,
+  attr_accessor :minute, :exercise_id, :default_value_man, :default_value_woman, :profile_index, :ratio,
               :reps, :distance
 end

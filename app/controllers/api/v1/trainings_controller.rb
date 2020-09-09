@@ -56,8 +56,8 @@ class Api::V1::TrainingsController < ApplicationController
              id: @training.id,
              name: @training.name,
              description: @training.description,
-             videoUrl: @training.videoUrl,
-             equipment: @training.equipment
+             trainer_id: @training.trainer_id,
+             sections: @training.sections
          }.to_json,
                 status: 200,
                 content_type: 'application/json'
@@ -82,7 +82,7 @@ class Api::V1::TrainingsController < ApplicationController
           :description,
           :trainer_id,
           :start_time,
-          sections: [:duration, :start_minute, :section_type, actions: [:minute, :exercise_id, :default_value_man, :default_value_woman, :profile_index, :ration, :reps, :distance]]
+          sections: [:duration, :start_minute, :section_type, actions: [:minute, :exercise_id, :default_value_man, :default_value_woman, :profile_index, :ratio, :reps, :distance]]
       )
    end
 
