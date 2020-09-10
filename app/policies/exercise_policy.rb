@@ -16,11 +16,11 @@ class ExercisePolicy < ApplicationPolicy
   end
 
   def all_users?
-    true if user.present? || user.superadmin_role?
+    true if user.present?
   end
 
   def destroy?
-    true if user.present? || user.superadmin_role?
+    true if user.present?
   end
 
   private

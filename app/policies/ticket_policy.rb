@@ -1,4 +1,4 @@
-class TrainingPolicy < ApplicationPolicy
+class TicketPolicy < ApplicationPolicy
   def index?
     user.present?
   end
@@ -8,11 +8,11 @@ class TrainingPolicy < ApplicationPolicy
   end
 
   def create?
-    user.trainer?
+    user.present?
   end
 
   def update?
-    user.trainer?
+    user.present?
   end
 
   def destroy?

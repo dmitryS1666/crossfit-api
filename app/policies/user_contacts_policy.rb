@@ -4,15 +4,15 @@ class UserContactPolicy < ApplicationPolicy
   end
 
   def create?
-    true if user.present? && user.superadmin_role?
+    true if user.present?
   end
 
   def update?
-    true if user.present? && user.superadmin_role?
+    true if user.present?
   end
 
   def destroy?
-    true if user.present? && user.superadmin_role?
+    true if user.present?
   end
 
   private

@@ -120,4 +120,13 @@ RailsAdmin.config do |config|
     end
   end
 
+  config.model 'Ticket' do
+    list do
+      field :id
+      field :duration
+      field :visits
+      field :price
+    end
+  end
+
 end
