@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_27_205419) do
+ActiveRecord::Schema.define(version: 2020_09_10_194558) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,17 @@ ActiveRecord::Schema.define(version: 2020_08_27_205419) do
     t.text "desc"
     t.string "itin"
     t.string "code"
+  end
+
+  create_table "actions", force: :cascade do |t|
+    t.integer "minute"
+    t.string "exercise_id"
+    t.integer "default_value_man"
+    t.integer "default_value_woman"
+    t.string "profile_index"
+    t.integer "ratio"
+    t.integer "reps"
+    t.integer "distance"
   end
 
   create_table "administrators", force: :cascade do |t|
@@ -45,6 +56,7 @@ ActiveRecord::Schema.define(version: 2020_08_27_205419) do
     t.string "equipment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "user_id"
   end
 
   create_table "oauth_access_grants", force: :cascade do |t|
@@ -99,6 +111,28 @@ ActiveRecord::Schema.define(version: 2020_08_27_205419) do
     t.string "unp"
     t.string "first_name"
     t.string "last_name"
+  end
+
+  create_table "sections", force: :cascade do |t|
+    t.integer "duration"
+    t.integer "start_minute"
+    t.string "training_id"
+    t.string "actions", default: [], array: true
+    t.string "section_type"
+  end
+
+  create_table "tickets", force: :cascade do |t|
+    t.integer "duration"
+    t.integer "visits"
+    t.integer "price"
+  end
+
+  create_table "trainings", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.string "start_time"
+    t.string "trainer_id"
+    t.text "sections", default: [], array: true
   end
 
   create_table "user_contacts", force: :cascade do |t|
@@ -168,6 +202,9 @@ ActiveRecord::Schema.define(version: 2020_08_27_205419) do
     t.boolean "trainer", default: false
     t.boolean "client", default: false
     t.integer "height", default: 0
+    t.text "avatar"
+    t.float "longitude"
+    t.decimal "latitude", precision: 64, scale: 12
     t.index ["account_id"], name: "index_users_on_account_id"
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end
